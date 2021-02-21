@@ -79,17 +79,6 @@ export default function Passenger() {
 
             </Grid>
 
-            <Grid container spacing={5} className={MuiGrid}>
-
-            <Grid item xs={6}>
-                <Button>Hello</Button>
-                <Button>Hello</Button>
-            </Grid>
-            <Grid item xs={6}>
-                <Button>Hello</Button>
-                <Button>Hello</Button>
-            </Grid>
-            </Grid>
         </AccordionDetails>
       </Accordion>
     </div>
