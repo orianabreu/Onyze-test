@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
@@ -11,8 +10,7 @@ import SwitchButton from '../SwitchButton';
 import Grid from '@material-ui/core/Grid';
 import passenger1 from '../assets/passenger1.jpg';
 import useStyles from './styles';
-import StyledButton from './styles';
-import Button from '@material-ui/core/Button';
+import PaymentButtons from '../PaymentButtons';
 
 const AccordionSummary = withStyles({
     expandIcon: {
@@ -39,6 +37,8 @@ export default function Passenger() {
 
         <AccordionDetails>
             <Grid container spacing={3} className={MuiGrid}>
+
+                
                 <Grid container xs={12}>
                     <Avatar 
                         alt="Passenger" 
@@ -76,6 +76,8 @@ export default function Passenger() {
                         Madrid, ES
                     </Typography>
                 </Grid>
+
+                <PaymentButtons />
 
             </Grid>
 
