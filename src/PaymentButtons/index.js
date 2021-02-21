@@ -10,31 +10,34 @@ export default function PaymentButtons() {
 
   return (
     <div className={root}>
-      <Grid container spacing={3} direction='column'>
-        <Grid container item xs={4} spacing={5}>
-        <Grid item xs={2}>
-            <Button variant='outlined' size='large'>
-                <Paypal size='40'/>
-            </Button>
+      <Grid container spacing={1} direction='column'>
+
+        <Grid container item xs={4} spacing={10}>
+            <Grid item xs={6} spacing={5}>
+                <Button variant='outlined' size='large'>
+                    <Paypal size='40'/>
+                </Button>
+            </Grid>
+            <Grid item xs={6} spacing={5}>
+                <Button variant='outlined' size='large'>
+                    <Visa size='40'/>
+                </Button>
+            </Grid>
         </Grid>
-        <Grid item xs={2}>
-            <Button variant='outlined' size='large'>
-                <Visa size='40'/>
-            </Button>
+        
+        <Grid container item xs={4} spacing={10}>
+            <Grid item xs={6} spacing={5}>
+                <Button variant='outlined' size='large'>
+                    <Mastercard size='40'/>
+                </Button>
+            </Grid>
+            <Grid item xs={6} spacing={5}>
+                <Button variant='outlined' size='large'>
+                    <ApplePay size='40'/>
+                </Button>
+            </Grid>
         </Grid>
-        </Grid>
-        <Grid container item xs={4} spacing={5}>
-        <Grid item xs={2}>
-            <Button variant='outlined' size='large'>
-                <Mastercard size='40'/>
-            </Button>
-        </Grid>
-        <Grid item xs={2}>
-            <Button variant='outlined' size='large'>
-                <ApplePay size='40'/>
-            </Button>
-        </Grid>
-        </Grid>
+
       </Grid>
     </div>
   );

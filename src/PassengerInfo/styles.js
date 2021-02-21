@@ -12,10 +12,16 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 'bold',
       letterSpacing: '2px',
     },
-    MuiGrid: {
-        root: {
-            flexGrow: 1,
-        }
+    container: {
+        padding: theme.spacing(2),
+    },
+    MuiAvatar: {
+        margin: theme.spacing(1),
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+    },
+    MuiTypography: {
+        
     }
   }));
 

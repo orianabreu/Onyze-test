@@ -20,7 +20,7 @@ const AccordionSummary = withStyles({
 
 export default function Passenger() {
 
-  const {root, heading, MuiGrid} = useStyles();
+  const {root, heading, container, MuiAvatar} = useStyles();
 
   return (
     <div className={root}>
@@ -36,49 +36,52 @@ export default function Passenger() {
         </AccordionSummary>
 
         <AccordionDetails>
-            <Grid container spacing={3} className={MuiGrid}>
+            <Grid container spacing={1} className={container}>
 
+                <Grid container xs={8} spacing={2} alignItems='flex-start'>
+                    <Grid container xs={12}>
+                        <Avatar 
+                            alt="Passenger" 
+                            src={passenger1}
+                            className={MuiAvatar} 
+                        />
+                        <Typography >
+                            Carlos Perez 
+                            <br /> 
+                            4 interactions
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={12} >
+                        <Typography className={heading}>
+                            EMAIL
+                        </Typography>
+                        <Typography>
+                            email@email.com
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <Typography className={heading}>
+                            PHONE
+                        </Typography>
+                        <Typography>
+                            +34 555 55 55 55
+                        </Typography>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <Typography className={heading}>
+                            LOCATION
+                        </Typography>
+                        <Typography>
+                            Madrid, ES
+                        </Typography>
+                    </Grid>
+                </Grid>
                 
-                <Grid container xs={12}>
-                    <Avatar 
-                        alt="Passenger" 
-                        src={passenger1} 
-                    />
-                    <Typography>
-                        Carlos Perez <br /> 
-                        4 interactions
-                    </Typography>
-                </Grid>
-
-                <Grid item xs={12} className={MuiGrid}>
-                    <Typography className={heading}>
-                        EMAIL
-                    </Typography>
-                    <Typography>
-                        email@email.com
-                    </Typography>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Typography className={heading}>
-                        PHONE
-                    </Typography>
-                    <Typography>
-                        +34 555 55 55 55
-                    </Typography>
-                </Grid>
-
-                <Grid item xs={12}>
-                    <Typography className={heading}>
-                        LOCATION
-                    </Typography>
-                    <Typography>
-                        Madrid, ES
-                    </Typography>
-                </Grid>
-
-                <PaymentButtons />
-
+                    <PaymentButtons />
+                
             </Grid>
 
         </AccordionDetails>
