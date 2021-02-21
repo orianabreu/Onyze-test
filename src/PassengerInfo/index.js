@@ -8,10 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import SwitchButton from '../SwitchButton';
-import { XGrid } from '@material-ui/x-grid';
+import Grid from '@material-ui/core/Grid';
 import passenger1 from '../assets/passenger1.jpg';
 import useStyles from './styles';
-
+import StyledButton from './styles';
+import Button from '@material-ui/core/Button';
 
 const AccordionSummary = withStyles({
     expandIcon: {
@@ -21,7 +22,7 @@ const AccordionSummary = withStyles({
 
 export default function Passenger() {
 
-  const {root, heading, secondaryHeading, details, column, row, helper, link} = useStyles();
+  const {root, heading, MuiGrid} = useStyles();
 
   return (
     <div className={root}>
@@ -37,13 +38,58 @@ export default function Passenger() {
         </AccordionSummary>
 
         <AccordionDetails>
-            <Avatar 
-                alt="Passenger" 
-                src={passenger1} 
-            />
-            <Typography>
-                Carlos Perez
-            </Typography>
+            <Grid container spacing={3} className={MuiGrid}>
+                <Grid container xs={12}>
+                    <Avatar 
+                        alt="Passenger" 
+                        src={passenger1} 
+                    />
+                    <Typography>
+                        Carlos Perez <br /> 
+                        4 interactions
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={12} className={MuiGrid}>
+                    <Typography className={heading}>
+                        EMAIL
+                    </Typography>
+                    <Typography>
+                        email@email.com
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Typography className={heading}>
+                        PHONE
+                    </Typography>
+                    <Typography>
+                        +34 555 55 55 55
+                    </Typography>
+                </Grid>
+
+                <Grid item xs={12}>
+                    <Typography className={heading}>
+                        LOCATION
+                    </Typography>
+                    <Typography>
+                        Madrid, ES
+                    </Typography>
+                </Grid>
+
+            </Grid>
+
+            <Grid container spacing={5} className={MuiGrid}>
+
+            <Grid item xs={6}>
+                <Button>Hello</Button>
+                <Button>Hello</Button>
+            </Grid>
+            <Grid item xs={6}>
+                <Button>Hello</Button>
+                <Button>Hello</Button>
+            </Grid>
+            </Grid>
         </AccordionDetails>
       </Accordion>
     </div>
