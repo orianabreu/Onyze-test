@@ -1,11 +1,13 @@
 import React from 'react';
+import {ThemeProvider} from '@material-ui/core';
+import theme from './styles/theme';
 import Passenger from './PassengerInfo';
 
 function App() {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Passenger />
-    </div>
+    </ThemeProvider>
   );
 }
 

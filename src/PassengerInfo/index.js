@@ -1,15 +1,14 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionActions from '@material-ui/core/AccordionActions';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
-import Chip from '@material-ui/core/Chip';
-import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import SwitchButton from '../SwitchButton';
+import passenger1 from '../assets/passenger1.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   column: {
     flexBasis: '33.33%',
+    display: 'flex',
   },
   helper: {
     borderLeft: `2px solid ${theme.palette.divider}`,
@@ -43,8 +43,18 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       textDecoration: 'underline',
     },
+    large: {
+        width: theme.spacing(7),
+        height: theme.spacing(7),
+      },
   },
 }));
+
+const AccordionSummary = withStyles({
+    expandIcon: {
+        transform: 'none !important',
+    },
+})(MuiAccordionSummary);
 
 export default function Passenger() {
   const classes = useStyles();
@@ -58,17 +68,29 @@ export default function Passenger() {
           id="panel1c-header"
         >
           <div className={classes.column}>
-            <Typography className={classes.heading}>Location</Typography>
-          </div>
-          <div className={classes.column}>
-            <Typography className={classes.secondaryHeading}>Select trip destination</Typography>
+            <Typography className={classes.heading}>
+                PASSENGER INFO
+            </Typography>
           </div>
         </AccordionSummary>
+
         <AccordionDetails className={classes.details}>
-          <div className={classes.column} />
-          <div className={classes.column}>
-            <Chip label="Barbados" onDelete={() => {}} />
-          </div>
+            <div className={classes.column}>
+                <Avatar 
+                    alt="Passenger" 
+                    src={passenger1} 
+                    className={classes.large}
+                />
+                <Typography className={classes.secondaryHeading}>
+                    Carlos Perez
+                </Typography>
+            </div>
+            <div className={classes.column}>
+                <Typography className={classes.heading}>
+                    EMAIL
+                </Typography>
+            </div>  
+
           <div className={clsx(classes.column, classes.helper)}>
             <Typography variant="caption">
               Select your destination of choice
@@ -80,12 +102,6 @@ export default function Passenger() {
           </div>
         </AccordionDetails>
         <Divider />
-        <AccordionActions>
-          <Button size="small">Cancel</Button>
-          <Button size="small" color="primary">
-            Save
-          </Button>
-        </AccordionActions>
       </Accordion>
     </div>
   );
