@@ -20,7 +20,7 @@ const AccordionSummary = withStyles({
 
 export default function Passenger() {
 
-  const {root, heading, container, MuiAvatar} = useStyles();
+  const {root, heading, container, MuiAvatar, MuiTypography} = useStyles();
 
   return (
     <div className={root}>
@@ -45,7 +45,7 @@ export default function Passenger() {
                             src={passenger1}
                             className={MuiAvatar} 
                         />
-                        <Typography >
+                        <Typography className={MuiTypography}>
                             Carlos Perez 
                             <br /> 
                             4 interactions
