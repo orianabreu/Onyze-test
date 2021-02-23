@@ -1,14 +1,18 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    MainContainer: {
       width: '85vw',
+      padding: theme.spacing(3),
     },
     heading: {
-      fontSize: theme.typography.pxToRem(15),
-      color: theme.palette.text.secondary,
+      fontSize: theme.typography.pxToRem(17),
+      color: theme.palette.grey.light,
       fontWeight: 'bold',
       letterSpacing: '2px',
+    },
+    subtitle: {
+      color: theme.palette.grey.light,
     },
     container: {
         padding: theme.spacing(2),
@@ -22,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         fontWeight: 'bold',
+    },
+    divider: {
+      width: '70%',
+      maxWidth: 360,
+      backgroundColor: theme.palette.background.paper,
     }
   }));
 

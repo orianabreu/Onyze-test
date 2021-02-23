@@ -6,11 +6,13 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
-import SwitchButton from '../SwitchButton';
 import Grid from '@material-ui/core/Grid';
+import clsx from 'clsx';
+import SwitchButton from '../SwitchButton';
+import PaymentButtons from '../PaymentButtons';
 import passenger1 from '../assets/passenger1.jpg';
 import useStyles from './styles';
-import PaymentButtons from '../PaymentButtons';
+import TravelStepper from '../TravelStepper';
 
 const AccordionSummary = withStyles({
     expandIcon: {
@@ -20,17 +22,17 @@ const AccordionSummary = withStyles({
 
 export default function Passenger() {
 
-  const {root, heading, container, MuiAvatar, MuiTypography} = useStyles();
+  const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, divider} = useStyles();
 
   return (
-    <div className={root}>
+    <div className={MainContainer}>
         <Accordion defaultExpanded>
             <AccordionSummary
             expandIcon={<SwitchButton />}
             aria-controls="panel1a-content"
             id="panel1a-header"
             >
-            <Typography className={heading}>
+            <Typography className={clsx(heading, container)}>
                 PASSENGER INFO
             </Typography>
         </AccordionSummary>
@@ -81,8 +83,52 @@ export default function Passenger() {
                 </Grid>
                 
                     <PaymentButtons />
+
+                <Grid container xs={12} direction='column' alignItems='center'>
+                    <Grid container xs={12}>
+                        <TravelStepper />
+                    </Grid>
+
+                    {/* <Divider variant='middle' className={divider}/> */}
+
+                    <Grid container xs={6} justify='center'>
+                        <Grid item xs={3}>
+                            <Typography className={MuiTypography}>
+                                12.3 km
+                            </Typography>
+                            <Typography className={subtitle}>
+                                Distance
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                        <Typography className={MuiTypography}>
+                                42 min
+                            </Typography>
+                            <Typography className={subtitle}>
+                                Time
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                        <Typography className={MuiTypography}>
+                                $34.20
+                            </Typography>
+                            <Typography className={subtitle}>
+                                Price
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Typography className={MuiTypography}>
+                                12.4 kWh
+                            </Typography>
+                            <Typography className={subtitle}>
+                                Energy
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Grid>
                 
             </Grid>
+            
 
         </AccordionDetails>
       </Accordion>

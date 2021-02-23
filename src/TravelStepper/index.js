@@ -1,37 +1,20 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
-  },
-}));
-
-function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group'];
-}
+import CheckIcon from '@material-ui/icons/Check';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import useStyles from './styles';
 
 export default function TravelStepper() {
-  const classes = useStyles();
-  const steps = getSteps();
+  const {root, MuiStepIcon, IconContainer} = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={root}>
       <Stepper alternativeLabel>
           <Step >
-            <StepLabel>
+            <StepLabel StepIconComponent={()=><div className={IconContainer}><CheckIcon className={MuiStepIcon}/></div>} >
                 <Typography>
                     Jackson Heights 
                     <br /> 
@@ -40,9 +23,9 @@ export default function TravelStepper() {
             </StepLabel>
           </Step>
           <Step active='true'>
-            <StepLabel>
+            <StepLabel StepIconComponent={()=><div className={IconContainer}><LocationOnIcon className={MuiStepIcon}/></div>}>
                 <Typography>
-                     Greenpoint 
+                    Greenpoint 
                     <br /> 
                     81 Gate St Brookling
                 </Typography>
