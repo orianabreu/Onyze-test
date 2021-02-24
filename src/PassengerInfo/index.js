@@ -5,8 +5,8 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import Divider from '@material-ui/core/Divider';
 import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
@@ -22,10 +22,12 @@ const AccordionSummary = withStyles({
 
 export default function Passenger() {
 
-  const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, divider} = useStyles();
+    const isMobile = useMediaQuery('(max-width:600px)');
+
+    const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, infoContainer} = useStyles();
 
   return (
-    <div className={MainContainer}>
+    <div className={MainContainer} isMobile={isMobile}>
         <Accordion defaultExpanded>
             <AccordionSummary
             expandIcon={<SwitchButton />}
@@ -40,18 +42,21 @@ export default function Passenger() {
         <AccordionDetails>
             <Grid container spacing={1} className={container}>
 
-                <Grid container xs={8} spacing={2} alignItems='flex-start'>
+                <Grid container xs={9} md={6} spacing={2} alignItems='flex-start'>
                     <Grid container xs={12}>
                         <Avatar 
                             alt="Passenger" 
                             src={passenger1}
                             className={MuiAvatar} 
                         />
-                        <Typography className={MuiTypography}>
-                            Carlos Perez 
-                            <br /> 
-                            4 interactions
-                        </Typography>
+                        <div className={textContainer}>
+                            <Typography className={MuiTypography}>
+                                Carlos Perez 
+                            </Typography>
+                            <Typography className={subtitle}>
+                                4 interactions
+                            </Typography>
+                        </div>
                     </Grid>
 
                     <Grid item xs={12} >
@@ -82,53 +87,51 @@ export default function Passenger() {
                     </Grid>
                 </Grid>
                 
+                <Grid container xs={3} md={6}>
                     <PaymentButtons />
-
-                <Grid container xs={12} direction='column' alignItems='center'>
-                    <Grid container xs={12}>
-                        <TravelStepper />
-                    </Grid>
-
-                    {/* <Divider variant='middle' className={divider}/> */}
-
-                    <Grid container xs={6} justify='center'>
-                        <Grid item xs={3}>
-                            <Typography className={MuiTypography}>
-                                12.3 km
-                            </Typography>
-                            <Typography className={subtitle}>
-                                Distance
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                        <Typography className={MuiTypography}>
-                                42 min
-                            </Typography>
-                            <Typography className={subtitle}>
-                                Time
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                        <Typography className={MuiTypography}>
-                                $34.20
-                            </Typography>
-                            <Typography className={subtitle}>
-                                Price
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                            <Typography className={MuiTypography}>
-                                12.4 kWh
-                            </Typography>
-                            <Typography className={subtitle}>
-                                Energy
-                            </Typography>
-                        </Grid>
-                    </Grid>
                 </Grid>
-                
-            </Grid>
-            
+
+                    <Grid container xs={12} className={clsx(textContainer, infoContainer)}>
+                        <Grid container xs={12}>
+                            <TravelStepper />
+                        </Grid>
+
+                        <Grid container xs={12} md={6}>
+                            <Grid item xs={3}>
+                                <Typography className={MuiTypography}>
+                                    12.3 km
+                                </Typography>
+                                <Typography className={subtitle}>
+                                    Distance
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={3}>
+                            <Typography className={MuiTypography}>
+                                    42 min
+                                </Typography>
+                                <Typography className={subtitle}>
+                                    Time
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={3}>
+                            <Typography className={MuiTypography}>
+                                    $34.20
+                                </Typography>
+                                <Typography className={subtitle}>
+                                    Price
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={3}>
+                                <Typography className={MuiTypography}>
+                                    12.4 kWh
+                                </Typography>
+                                <Typography className={subtitle}>
+                                    Energy
+                                </Typography>
+                            </Grid>
+                        </Grid> 
+                    </Grid>
+                </Grid>          
 
         </AccordionDetails>
       </Accordion>

@@ -18,10 +18,11 @@ const theme = createMuiTheme ({
         grey: {
             light: '#9e9e9e',
         }
-    }
+    },
 })
 
 export const MainContainer = styled.div`
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;

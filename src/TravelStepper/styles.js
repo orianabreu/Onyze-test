@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
     },
@@ -8,14 +8,14 @@ const useStyles = makeStyles(() => ({
       width: 40,
       height: 40,
       padding: 5,
-      color: '#3f51b5',
+      color: theme.palette.primary.dark,
     },
     IconContainer: {
       borderRadius: '80%',
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#aab6fe',
+      backgroundColor: theme.palette.primary.light, 
     },
   }));
 

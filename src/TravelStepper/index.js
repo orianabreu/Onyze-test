@@ -3,16 +3,20 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CheckIcon from '@material-ui/icons/Check';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import useStyles from './styles';
 
 export default function TravelStepper() {
+
+  const isMobile = useMediaQuery('(max-width:600px)');
+  
   const {root, MuiStepIcon, IconContainer} = useStyles();
 
   return (
     <div className={root}>
-      <Stepper alternativeLabel>
+      <Stepper alternativeLabel orientation={isMobile ? 'vertical' : 'horizontal'}>
           <Step >
             <StepLabel StepIconComponent={()=><div className={IconContainer}><CheckIcon className={MuiStepIcon}/></div>} >
                 <Typography>
@@ -22,7 +26,7 @@ export default function TravelStepper() {
                 </Typography>
             </StepLabel>
           </Step>
-          <Step active='true'>
+          <Step active={true}>
             <StepLabel StepIconComponent={()=><div className={IconContainer}><LocationOnIcon className={MuiStepIcon}/></div>}>
                 <Typography>
                     Greenpoint 

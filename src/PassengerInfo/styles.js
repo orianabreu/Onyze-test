@@ -2,11 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     MainContainer: {
-      width: '85vw',
+      width: `${({isMobile}) => isMobile ? '90vw' : '80vw'}`,
       padding: theme.spacing(3),
     },
     heading: {
-      fontSize: theme.typography.pxToRem(17),
+      fontSize: '1rem',
       color: theme.palette.grey.light,
       fontWeight: 'bold',
       letterSpacing: '2px',
@@ -23,14 +23,15 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(7),
     },
     MuiTypography: {
-        display: 'flex',
-        alignItems: 'center',
         fontWeight: 'bold',
     },
-    divider: {
-      width: '70%',
-      maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
+    textContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+    infoContainer: {
+      alignItems: 'center',
     }
   }));
 
