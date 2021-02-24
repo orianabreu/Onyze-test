@@ -30,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       justifyContent: 'center',
     },
-    infoContainer: {
-      alignItems: 'center',
-    }
   }));
 
 

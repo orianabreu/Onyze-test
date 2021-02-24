@@ -22,13 +22,12 @@ const theme = createMuiTheme ({
 })
 
 export const MainContainer = styled.div`
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f4f6fc;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
 `;
 
 export default theme;

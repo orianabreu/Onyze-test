@@ -24,7 +24,7 @@ export default function Passenger() {
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
-    const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, infoContainer} = useStyles();
+    const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, textContainer} = useStyles();
 
   return (
     <div className={MainContainer} isMobile={isMobile}>
@@ -91,7 +91,7 @@ export default function Passenger() {
                     <PaymentButtons />
                 </Grid>
 
-                    <Grid container xs={12} className={clsx(textContainer, infoContainer)}>
+                    <Grid container xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
                         <Grid container xs={12}>
                             <TravelStepper />
                         </Grid>

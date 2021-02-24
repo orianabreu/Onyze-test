@@ -7,6 +7,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CheckIcon from '@material-ui/icons/Check';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import useStyles from './styles';
+import Grid from '@material-ui/core/Grid';
 
 export default function TravelStepper() {
 
@@ -17,7 +18,7 @@ export default function TravelStepper() {
   return (
     <div className={root}>
       <Stepper alternativeLabel orientation={isMobile ? 'vertical' : 'horizontal'}>
-          <Step >
+          <Step style={{width:isMobile?'100%': '50%'}}>
             <StepLabel StepIconComponent={()=><div className={IconContainer}><CheckIcon className={MuiStepIcon}/></div>} >
                 <Typography>
                     Jackson Heights 
@@ -26,7 +27,9 @@ export default function TravelStepper() {
                 </Typography>
             </StepLabel>
           </Step>
-          <Step active={true}>
+          {isMobile && <Grid item container xs={12} justify='center'><div style={{backgroundColor: '#efefef', width:2, height:100}}/></Grid>}
+          
+          <Step active={true}  style={{width:isMobile?'100%': '50%'}}>
             <StepLabel StepIconComponent={()=><div className={IconContainer}><LocationOnIcon className={MuiStepIcon}/></div>}>
                 <Typography>
                     Greenpoint 
