@@ -12,6 +12,7 @@ import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
 import passenger1 from '../assets/passenger1.jpg';
 import useStyles from './styles';
+import {MainContainer} from './styles';
 import TravelStepper from '../TravelStepper';
 
 const AccordionSummary = withStyles({
@@ -24,10 +25,10 @@ export default function Passenger() {
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
-    const {MainContainer, heading, subtitle, container, MuiAvatar, MuiTypography, textContainer} = useStyles();
+    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer} = useStyles();
 
   return (
-    <div className={MainContainer} isMobile={isMobile}>
+    <MainContainer isMobile={isMobile}>
         <Accordion defaultExpanded>
             <AccordionSummary
             expandIcon={<SwitchButton />}
@@ -135,6 +136,6 @@ export default function Passenger() {
 
         </AccordionDetails>
       </Accordion>
-    </div>
+    </MainContainer>
   );
 }

@@ -1,10 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
-    MainContainer: {
-      width: `${({isMobile}) => isMobile ? '90vw' : '80vw'}`,
-      padding: theme.spacing(3),
-    },
     heading: {
       fontSize: '1rem',
       color: theme.palette.grey.light,
@@ -31,7 +28,10 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: 'center',
     },
   }));
-
-
+  
+  export const MainContainer = styled.div`
+    width: ${({isMobile}) => isMobile ? '100vw' : '70vw'};
+    padding: 24px;
+  `;
 
   export default useStyles;
