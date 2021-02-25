@@ -2,6 +2,16 @@ import {createMuiTheme} from '@material-ui/core';
 import styled from 'styled-components';
 
 const theme = createMuiTheme ({
+    overrides: {
+        MuiCssBaseline: {
+            '@global': {
+                body: {
+                    margin: 0,
+                    padding: 0,
+                },
+            },
+        },
+    },
     typography: {
         fontFamily: 'Roboto',
     },
