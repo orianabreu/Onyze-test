@@ -9,7 +9,7 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import useStyles from './styles';
 import Grid from '@material-ui/core/Grid';
 
-export default function TravelStepper() {
+export default function TravelStepper(props) {
 
   const isMobile = useMediaQuery('(max-width:600px)');
   
@@ -21,7 +21,7 @@ export default function TravelStepper() {
           <Step style={{width:isMobile?'100%': '50%'}}>
             <StepLabel StepIconComponent={()=><div className={IconContainer}><CheckIcon className={MuiStepIcon}/></div>} >
                 <Typography>
-                    Jackson Heights 
+                    Jackson Heights
                     <br /> 
                     37-27 74th Street
                 </Typography>

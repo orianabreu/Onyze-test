@@ -33,11 +33,13 @@ const theme = createMuiTheme ({
 
 export const MainContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #f4f6fc;
     width: 100vw;
     min-height: 100vh;
+    padding: 24px 0;
 `;
 
 export default theme;
