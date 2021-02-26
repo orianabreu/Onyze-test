@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -26,6 +26,15 @@ const AccordionSummary = withStyles({
 })(MuiAccordionSummary);
 
 export default function Passenger(props) {
+
+    const [state, setState] = useState({
+        distance: '0',
+        time: '0',
+        price: '3',
+        energy: '0'
+    });
+
+    const {distance, time, price, energy} = state;
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
@@ -151,7 +160,7 @@ export default function Passenger(props) {
                             <Grid container xs={12} md={6}>
                                 <Grid item xs={3}>
                                     <Typography className={MuiTypography}>
-                                        12.3 km
+                                        {distance} km
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Distance
@@ -159,7 +168,7 @@ export default function Passenger(props) {
                                 </Grid>
                                 <Grid item xs={3}>
                                 <Typography className={MuiTypography}>
-                                        42 min
+                                        {time} min
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Time
@@ -167,7 +176,7 @@ export default function Passenger(props) {
                                 </Grid>
                                 <Grid item xs={3}>
                                 <Typography className={MuiTypography}>
-                                        $34.20
+                                        ${price}
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Price
@@ -175,7 +184,7 @@ export default function Passenger(props) {
                                 </Grid>
                                 <Grid item xs={3}>
                                     <Typography className={MuiTypography}>
-                                        12.4 kWh
+                                        {energy} kWh
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Energy
