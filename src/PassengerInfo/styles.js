@@ -27,11 +27,28 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       justifyContent: 'center',
     },
+    MuiStepIcon: {
+      width: 40,
+      height: 40,
+      padding: 5,
+      color: theme.palette.primary.dark,
+    },
+    IconContainer: {
+      borderRadius: '80%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.palette.primary.light, 
+    },
   }));
   
   export const MainContainer = styled.div`
     width: ${({isMobile}) => isMobile ? '100vw' : '70vw'};
     padding: 24px;
   `;
+
+  export const StepContainer = styled.div`
+  width: 100%;
+`;
 
   export default useStyles;

@@ -5,14 +5,18 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import CheckIcon from '@material-ui/icons/Check';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
 import useStyles from './styles';
-import { MainContainer } from './styles';
-import TravelStepper from '../TravelStepper';
+import { MainContainer, StepContainer } from './styles';
 
 const AccordionSummary = withStyles({
     expandIcon: {
@@ -24,7 +28,7 @@ export default function Passenger(props) {
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
-    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer} = useStyles();
+    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, MuiStepIcon, IconContainer} = useStyles();
 
   return (
     <MainContainer isMobile={isMobile}>
@@ -95,7 +99,35 @@ export default function Passenger(props) {
 
                         <Grid container xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
                             <Grid container xs={12}>
-                                <TravelStepper />
+                                <StepContainer>
+                                    <Stepper alternativeLabel orientation={isMobile ? 'vertical' : 'horizontal'}>
+                                        <Step style={{width:isMobile?'100%': '50%'}}>
+
+                                            <StepLabel StepIconComponent={() => 
+                                            <div className={IconContainer}>
+                                                <CheckIcon className={MuiStepIcon}/>
+                                            </div>}
+                                            >
+                                                <Typography>
+                                                    {props.departure}
+                                                    <br /> 
+                                                    {props.address1}
+                                                </Typography>
+                                            </StepLabel>
+                                        </Step>
+                                        {isMobile && <Grid item container xs={12} justify='center'><div style={{backgroundColor: '#efefef', width:2, height:100}}/></Grid>}
+                                        
+                                        <Step active={true}  style={{width:isMobile?'100%': '50%'}}>
+                                            <StepLabel StepIconComponent={()=><div className={IconContainer}><LocationOnIcon className={MuiStepIcon}/></div>}>
+                                                <Typography>
+                                                    {props.arrival} 
+                                                    <br /> 
+                                                    {props.address2}
+                                                </Typography>
+                                            </StepLabel>
+                                        </Step>
+                                    </Stepper>
+                                </StepContainer>
                             </Grid>
 
                             <Grid container xs={12} md={6}>
