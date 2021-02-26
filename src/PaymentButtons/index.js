@@ -9,26 +9,26 @@ import useStyles from './styles';
 export default function PaymentButtons() {
 
     const isMobile = useMediaQuery('(max-width:600px)');
-    const {root} = useStyles();
+    const {root, visaButton} = useStyles();
 
   return (
     <div className={root}>
       <Grid container spacing={2} direction='column'>
 
-        <Grid container item xs={2} md={6} spacing={isMobile ? 2 : 5}>
+        <Grid container item xs={2} md={6} spacing={isMobile ? 2 : 10}>
             <Grid item xs={2} md={4} >
                 <Button variant='outlined' size='large'>
                     <Paypal size='40'/>
                 </Button>
             </Grid>
             <Grid item xs={2} md={4} >
-                <Button variant='outlined' size='large'>
+                <Button variant='outlined' size='large' className={visaButton}>
                     <Visa size='40'/>
                 </Button>
             </Grid>
         </Grid>
         
-        <Grid container item xs={2} md={6} spacing={isMobile ? 2 : 5}>
+        <Grid container item xs={2} md={6} spacing={isMobile ? 2 : 10}>
             <Grid item xs={2} md={4} >
                 <Button variant='outlined' size='large'>
                     <Mastercard size='40'/>

@@ -40,6 +40,20 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
       backgroundColor: theme.palette.primary.light, 
     },
+    divider: {
+      backgroundColor: '#efefef',
+      width: 2,
+      height: 100,
+    },
+    MuiStep: {
+      width: `${({isMobile}) => isMobile ? '100%' : '50%'}`,
+    },
+    MuiStepper: {
+      alignItems: 'center',
+    },
+    connectorLine: {
+      borderColor: '#fff',
+    },
   }));
   
   export const MainContainer = styled.div`
@@ -48,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   `;
 
   export const StepContainer = styled.div`
-  width: 100%;
+    width: 100%;
 `;
 
   export default useStyles;

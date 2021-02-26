@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
+import StepConnector from '@material-ui/core/StepConnector';
 import StepLabel from '@material-ui/core/StepLabel';
 import CheckIcon from '@material-ui/icons/Check';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
@@ -28,7 +29,7 @@ export default function Passenger(props) {
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
-    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, MuiStepIcon, IconContainer} = useStyles();
+    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, MuiStepIcon, IconContainer, divider, MuiStep, MuiStepper, connectorLine} = useStyles();
 
   return (
     <MainContainer isMobile={isMobile}>
@@ -100,13 +101,19 @@ export default function Passenger(props) {
                         <Grid container xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
                             <Grid container xs={12}>
                                 <StepContainer>
-                                    <Stepper alternativeLabel orientation={isMobile ? 'vertical' : 'horizontal'}>
-                                        <Step style={{width:isMobile?'100%': '50%'}}>
+                                    <Stepper 
+                                    alternativeLabel 
+                                    orientation={isMobile ? 'vertical' : 'horizontal'}
+                                    className={MuiStepper}
+                                    connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
+                                    >
+                                        <Step className={MuiStep}>
 
                                             <StepLabel StepIconComponent={() => 
                                             <div className={IconContainer}>
                                                 <CheckIcon className={MuiStepIcon}/>
-                                            </div>}
+                                            </div>
+                                            }
                                             >
                                                 <Typography>
                                                     {props.departure}
@@ -115,10 +122,21 @@ export default function Passenger(props) {
                                                 </Typography>
                                             </StepLabel>
                                         </Step>
-                                        {isMobile && <Grid item container xs={12} justify='center'><div style={{backgroundColor: '#efefef', width:2, height:100}}/></Grid>}
+
+                                        {isMobile && 
+                                            <Grid item container xs={12} justify='center'>
+                                                <div className={divider}/>
+                                            </Grid>
+                                        }
                                         
-                                        <Step active={true}  style={{width:isMobile?'100%': '50%'}}>
-                                            <StepLabel StepIconComponent={()=><div className={IconContainer}><LocationOnIcon className={MuiStepIcon}/></div>}>
+                                        <Step active={true} MuiStepConnector='disabled' className={(MuiStep)}>
+                                            
+                                            <StepLabel StepIconComponent={() => 
+                                            <div className={IconContainer}>
+                                                <LocationOnIcon className={MuiStepIcon}/>
+                                            </div>
+                                            }
+                                            >
                                                 <Typography>
                                                     {props.arrival} 
                                                     <br /> 
