@@ -15,7 +15,7 @@ import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import { interval } from 'rxjs';
-import { scan, startWith, takeWhile } from 'rxjs/operators';
+import { scan, startWith, map, distinctUntilChanged } from 'rxjs/operators';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
 import useStyles from './styles';
@@ -27,10 +27,10 @@ const AccordionSummary = withStyles({
     },
 })(MuiAccordionSummary);
 
-const observable$ = interval(1000).pipe(
+const observable$ = interval(2000).pipe(
     startWith(1),
-    scan(value => value + 1),
-    takeWhile(value => value < 1000)
+    scan(() => Math.ceil(Math.random() * 10)),
+    distinctUntilChanged()
 )
 
 export default function PassengerInfo({imgURL, name, email, phone, location, departure, address1, arrival, address2, distance, time, energy}) {
