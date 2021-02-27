@@ -7,12 +7,10 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import useStyles from './styles';
 
 export default function PaymentButtons() {
-
     const isMobile = useMediaQuery('(max-width:600px)');
-    const {root, visaButton} = useStyles();
+    const { visaButton } = useStyles();
 
   return (
-    <div className={root}>
       <Grid container spacing={2} direction='column'>
 
         <Grid container item xs={2} md={6} spacing={isMobile ? 2 : 10}>
@@ -42,6 +40,5 @@ export default function PaymentButtons() {
         </Grid>
 
       </Grid>
-    </div>
   );
 }
