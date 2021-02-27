@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -14,6 +14,8 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
+import { interval } from 'rxjs';
+import { scan, startWith, takeWhile } from 'rxjs/operators';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
 import useStyles from './styles';
@@ -25,16 +27,20 @@ const AccordionSummary = withStyles({
     },
 })(MuiAccordionSummary);
 
-export default function Passenger(props) {
+const observable$ = interval(1000).pipe(
+    startWith(1),
+    scan(value => value + 1),
+    takeWhile(value => value < 1000)
+)
 
-    const [state, setState] = useState({
-        distance: '0',
-        time: '0',
-        price: '3',
-        energy: '0'
-    });
+export default function PassengerInfo({imgURL, name, email, phone, location, departure, address1, arrival, address2, distance, time, energy}) {
 
-    const {distance, time, price, energy} = state;
+    const [ratio, setRatio] = useState(1);
+
+    useEffect(() => {
+        const sub = observable$.subscribe(setRatio);
+        return () => sub.unsubscribe();
+    }, []);
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
@@ -51,23 +57,23 @@ export default function Passenger(props) {
                 <Typography className={clsx(heading, container)}>
                     PASSENGER INFO
                     <br/>
-                    {props.name}
+                    {name}
                 </Typography>
             </AccordionSummary>
 
             <AccordionDetails>
                 <Grid container spacing={1} className={container}>
 
-                    <Grid container xs={9} md={6} spacing={2} alignItems='flex-start'>
-                        <Grid container xs={12}>
+                    <Grid container item xs={9} md={6} spacing={2} alignItems='flex-start'>
+                        <Grid container item xs={12}>
                             <Avatar 
                                 alt="Passenger" 
-                                src={props.img}
+                                src={imgURL}
                                 className={MuiAvatar} 
                             />
                             <div className={textContainer}>
                                 <Typography className={MuiTypography}>
-                                    {props.name} 
+                                    {name} 
                                 </Typography>
                                 <Typography className={subtitle}>
                                     4 interactions
@@ -80,7 +86,7 @@ export default function Passenger(props) {
                                 EMAIL
                             </Typography>
                             <Typography>
-                                {props.email}
+                                {email}
                             </Typography>
                         </Grid>
 
@@ -89,7 +95,7 @@ export default function Passenger(props) {
                                 PHONE
                             </Typography>
                             <Typography>
-                                {props.phone}
+                                {phone}
                             </Typography>
                         </Grid>
 
@@ -98,20 +104,20 @@ export default function Passenger(props) {
                                 LOCATION
                             </Typography>
                             <Typography>
-                                {props.location}
+                                {location}
                             </Typography>
                         </Grid>
                     </Grid>
                     
-                    <Grid container xs={3} md={6}>
+                    <Grid container item xs={3} md={6}>
                         <PaymentButtons />
                     </Grid>
 
-                        <Grid container xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
-                            <Grid container xs={12}>
+                        <Grid container item xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
+                            <Grid container item xs={12}>
                                 <StepContainer>
                                     <Stepper 
-                                    alternativeLabel 
+                                    alternativeLabel={!isMobile}
                                     orientation={isMobile ? 'vertical' : 'horizontal'}
                                     className={MuiStepper}
                                     connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
@@ -125,9 +131,9 @@ export default function Passenger(props) {
                                             }
                                             >
                                                 <Typography>
-                                                    {props.departure}
+                                                    {departure}
                                                     <br /> 
-                                                    {props.address1}
+                                                    {address1}
                                                 </Typography>
                                             </StepLabel>
                                         </Step>
@@ -138,7 +144,7 @@ export default function Passenger(props) {
                                             </Grid>
                                         }
                                         
-                                        <Step active={true} MuiStepConnector='disabled' className={(MuiStep)}>
+                                        <Step active className={(MuiStep)}>
                                             
                                             <StepLabel StepIconComponent={() => 
                                             <div className={IconContainer}>
@@ -147,9 +153,9 @@ export default function Passenger(props) {
                                             }
                                             >
                                                 <Typography>
-                                                    {props.arrival} 
+                                                    {arrival} 
                                                     <br /> 
-                                                    {props.address2}
+                                                    {address2}
                                                 </Typography>
                                             </StepLabel>
                                         </Step>
@@ -157,7 +163,7 @@ export default function Passenger(props) {
                                 </StepContainer>
                             </Grid>
 
-                            <Grid container xs={12} md={6}>
+                            <Grid container item xs={12} md={6}>
                                 <Grid item xs={3}>
                                     <Typography className={MuiTypography}>
                                         {distance} km
@@ -176,7 +182,7 @@ export default function Passenger(props) {
                                 </Grid>
                                 <Grid item xs={3}>
                                 <Typography className={MuiTypography}>
-                                        ${price}
+                                        ${ratio*distance}
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Price
@@ -184,7 +190,7 @@ export default function Passenger(props) {
                                 </Grid>
                                 <Grid item xs={3}>
                                     <Typography className={MuiTypography}>
-                                        {energy} kWh
+                                       {energy} kWh
                                     </Typography>
                                     <Typography className={subtitle}>
                                         Energy

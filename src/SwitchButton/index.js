@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-
 const IOSSwitch = withStyles((theme) => ({
   root: {
     width: 42,
