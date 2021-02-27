@@ -1,4 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import styled from 'styled-components';
 
 const useStyles = makeStyles((theme) => ({
@@ -62,6 +63,12 @@ const useStyles = makeStyles((theme) => ({
       borderColor: '#fff',
     },
   }));
+
+export const AccordionSummary = withStyles({
+    expandIcon: {
+        transform: 'none !important',
+    },
+})(MuiAccordionSummary);
   
   export const MainContainer = styled.div`
     width: ${({isMobile}) => isMobile ? '100vw' : '70vw'};

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
-import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Stepper from '@material-ui/core/Stepper';
@@ -17,14 +15,8 @@ import clsx from 'clsx';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
 import useStyles from './styles';
-import { MainContainer, StepContainer } from './styles';
+import { MainContainer, StepContainer, AccordionSummary } from './styles';
 import observable$ from '../observable/observable';
-
-const AccordionSummary = withStyles({
-    expandIcon: {
-        transform: 'none !important',
-    },
-})(MuiAccordionSummary);
 
 
 export default function PassengerInfo({imgURL, name, email, phone, location, departure, address1, arrival, address2, distance, time, energy}) {
