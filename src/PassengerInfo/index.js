@@ -38,7 +38,22 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
 
     const isMobile = useMediaQuery('(max-width:600px)');
 
-    const {heading, subtitle, container, MuiAvatar, MuiTypography, textContainer, MuiStepIcon, IconContainer, divider, MuiStep, MuiStepper, connectorLine} = useStyles();
+    const {
+        heading, 
+        subtitle,
+        blueSubtitle, 
+        container, 
+        MuiAvatar, 
+        MuiTypography,
+        priceTypo, 
+        textContainer, 
+        MuiStepIcon, 
+        IconContainer, 
+        divider, 
+        MuiStep, 
+        MuiStepper, 
+        connectorLine
+    } = useStyles();
 
   return (
     <MainContainer isMobile={isMobile}>
@@ -111,48 +126,48 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                             <Grid container item xs={12}>
                                 <StepContainer>
                                     <Stepper 
-                                    alternativeLabel={!isMobile}
-                                    orientation={isMobile ? 'vertical' : 'horizontal'}
-                                    className={MuiStepper}
-                                    connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
-                                    >
-                                        <Step className={MuiStep}>
+                                        alternativeLabel={!isMobile}
+                                        orientation={isMobile ? 'vertical' : 'horizontal'}
+                                        className={MuiStepper}
+                                        connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
+                                        >
+                                            <Step className={MuiStep}>
 
-                                            <StepLabel StepIconComponent={() => 
-                                            <div className={IconContainer}>
-                                                <CheckIcon className={MuiStepIcon}/>
-                                            </div>
+                                                <StepLabel StepIconComponent={() => 
+                                                <div className={IconContainer}>
+                                                    <CheckIcon className={MuiStepIcon}/>
+                                                </div>
+                                                }
+                                                >
+                                                    <Typography>
+                                                        {departure}
+                                                        <br /> 
+                                                        {address1}
+                                                    </Typography>
+                                                </StepLabel>
+                                            </Step>
+
+                                            {isMobile && 
+                                                <Grid item container xs={12} justify='center'>
+                                                    <div className={divider}/>
+                                                </Grid>
                                             }
-                                            >
-                                                <Typography>
-                                                    {departure}
-                                                    <br /> 
-                                                    {address1}
-                                                </Typography>
-                                            </StepLabel>
-                                        </Step>
-
-                                        {isMobile && 
-                                            <Grid item container xs={12} justify='center'>
-                                                <div className={divider}/>
-                                            </Grid>
-                                        }
-                                        
-                                        <Step active className={(MuiStep)}>
                                             
-                                            <StepLabel StepIconComponent={() => 
-                                            <div className={IconContainer}>
-                                                <LocationOnIcon className={MuiStepIcon}/>
-                                            </div>
-                                            }
-                                            >
-                                                <Typography>
-                                                    {arrival} 
-                                                    <br /> 
-                                                    {address2}
-                                                </Typography>
-                                            </StepLabel>
-                                        </Step>
+                                            <Step active className={(MuiStep)}>
+                                                
+                                                <StepLabel StepIconComponent={() => 
+                                                <div className={IconContainer}>
+                                                    <LocationOnIcon className={MuiStepIcon}/>
+                                                </div>
+                                                }
+                                                >
+                                                    <Typography>
+                                                        {arrival} 
+                                                        <br /> 
+                                                        {address2}
+                                                    </Typography>
+                                                </StepLabel>
+                                            </Step>
                                     </Stepper>
                                 </StepContainer>
                             </Grid>
@@ -175,10 +190,10 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={3}>
-                                <Typography className={MuiTypography}>
+                                <Typography className={priceTypo}>
                                         ${ratio*distance}
                                     </Typography>
-                                    <Typography className={subtitle}>
+                                    <Typography className={blueSubtitle}>
                                         Price
                                     </Typography>
                                 </Grid>

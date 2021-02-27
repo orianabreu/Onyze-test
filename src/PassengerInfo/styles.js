@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
     subtitle: {
       color: theme.palette.grey.light,
     },
+    blueSubtitle: {
+      color: theme.palette.primary.main,
+    },
     container: {
         padding: theme.spacing(2),
     },
@@ -21,6 +24,10 @@ const useStyles = makeStyles((theme) => ({
     },
     MuiTypography: {
         fontWeight: 'bold',
+    },
+    priceTypo: {
+      color: theme.palette.primary.main,
+      fontWeight: 'bold',
     },
     textContainer: {
       display: 'flex',
