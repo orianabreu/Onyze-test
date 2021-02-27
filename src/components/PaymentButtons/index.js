@@ -19,6 +19,7 @@ export default function PaymentButtons() {
                     <Paypal size='40'/>
                 </Button>
             </Grid>
+
             <Grid item xs={2} md={4} >
                 <Button variant='outlined' size='large' className={visaButton}>
                     <Visa size='40'/>
@@ -32,6 +33,7 @@ export default function PaymentButtons() {
                     <Mastercard size='40'/>
                 </Button>
             </Grid>
+            
             <Grid item xs={2} md={4} >
                 <Button variant='outlined' size='large'>
                     <ApplePay size='40'/>
