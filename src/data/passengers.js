@@ -1,6 +1,6 @@
-import passenger1 from './assets/passenger1.jpg';
-import passenger2 from './assets/passenger2.jpg';
-import passenger3 from './assets/passenger3.jpg';
+import passenger1 from '../assets/passenger1.jpg';
+import passenger2 from '../assets/passenger2.jpg';
+import passenger3 from '../assets/passenger3.jpg';
 
 const passengers = [
     {

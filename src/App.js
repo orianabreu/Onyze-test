@@ -3,15 +3,20 @@ import {ThemeProvider} from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from './styles/theme';
 import {MainContainer} from './styles/theme';
-import PassengerInfo from './PassengerInfo';
-import passengers from './passengers';
+import PassengerInfo from './components/PassengerInfo';
+import passengers from './data/passengers';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <MainContainer>
-        {passengers.map(({id, ...rest}) => <PassengerInfo key={id} id={id} {...rest} />)}
+        {passengers.map(({id, ...rest}) => 
+          <PassengerInfo 
+            key={id} 
+            id={id} 
+            {...rest} 
+          />)}
       </MainContainer>
     </ThemeProvider>
   );

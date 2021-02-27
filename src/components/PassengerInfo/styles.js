@@ -70,13 +70,13 @@ export const AccordionSummary = withStyles({
     },
 })(MuiAccordionSummary);
   
-  export const MainContainer = styled.div`
+export const MainContainer = styled.div`
     width: ${({isMobile}) => isMobile ? '100vw' : '70vw'};
     padding: 24px;
-  `;
+`;
 
-  export const StepContainer = styled.div`
+export const StepContainer = styled.div`
     width: 100%;
 `;
 
-  export default useStyles;
+export default useStyles;

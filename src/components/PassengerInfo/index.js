@@ -14,8 +14,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import clsx from 'clsx';
 import SwitchButton from '../SwitchButton';
 import PaymentButtons from '../PaymentButtons';
-import useStyles from './styles';
-import { MainContainer, StepContainer, AccordionSummary } from './styles';
+import useStyles, { MainContainer, StepContainer, AccordionSummary } from './styles';
 import observable$ from '../observable/observable';
 
 
@@ -110,9 +109,9 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                         </Grid>
                     </Grid>
                     
-                    <Grid container item xs={3} md={6}>
-                        <PaymentButtons />
-                    </Grid>
+                        <Grid container item xs={3} md={6}>
+                            <PaymentButtons />
+                        </Grid>
 
                         <Grid container item xs={12} direction={isMobile ? 'row' : 'column'} alignItems='center'>
                             <Grid container item xs={12}>
@@ -122,19 +121,19 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                         orientation={isMobile ? 'vertical' : 'horizontal'}
                                         className={MuiStepper}
                                         connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
-                                        >
+                                    >
                                             <Step className={MuiStep}>
 
                                                 <StepLabel StepIconComponent={() => 
-                                                <div className={IconContainer}>
-                                                    <CheckIcon className={MuiStepIcon}/>
-                                                </div>
+                                                    <div className={IconContainer}>
+                                                        <CheckIcon className={MuiStepIcon}/>
+                                                    </div>
                                                 }
                                                 >
                                                     <Typography>
-                                                        {departure}
+                                                       {departure}
                                                         <br /> 
-                                                        {address1}
+                                                       {address1}
                                                     </Typography>
                                                 </StepLabel>
                                             </Step>
@@ -148,9 +147,9 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                             <Step active className={(MuiStep)}>
                                                 
                                                 <StepLabel StepIconComponent={() => 
-                                                <div className={IconContainer}>
-                                                    <LocationOnIcon className={MuiStepIcon}/>
-                                                </div>
+                                                    <div className={IconContainer}>
+                                                        <LocationOnIcon className={MuiStepIcon}/>
+                                                    </div>
                                                 }
                                                 >
                                                     <Typography>
@@ -173,6 +172,7 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                         Distance
                                     </Typography>
                                 </Grid>
+
                                 <Grid item xs={3}>
                                 <Typography className={MuiTypography}>
                                         {time} min
@@ -181,6 +181,7 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                         Time
                                     </Typography>
                                 </Grid>
+
                                 <Grid item xs={3}>
                                 <Typography className={priceTypo}>
                                         ${ratio*distance}
@@ -189,6 +190,7 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                         Price
                                     </Typography>
                                 </Grid>
+                                
                                 <Grid item xs={3}>
                                     <Typography className={MuiTypography}>
                                        {energy} kWh
