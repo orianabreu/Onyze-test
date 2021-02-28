@@ -55,7 +55,7 @@ const IOSSwitch = withStyles((theme) => ({
                     {...props}
                 />
             }
-            label="Hide information"
+            label="Hide info"
             labelPlacement="start"
         />
     );
