@@ -40,11 +40,11 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
         textContainer, 
         MuiStepIcon, 
         IconContainer, 
-        divider, 
         MuiStep, 
         MuiStepper, 
-        connectorLine
-    } = useStyles();
+        verticalConnector,
+        horizontalConnector
+    } = useStyles();    
 
   return (
     <MainContainer isMobile={isMobile}>
@@ -120,7 +120,7 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                         alternativeLabel={!isMobile}
                                         orientation={isMobile ? 'vertical' : 'horizontal'}
                                         className={MuiStepper}
-                                        connector={<StepConnector classes={{lineVertical:connectorLine}}/>}
+                                        connector={<StepConnector classes={{lineVertical :verticalConnector, lineHorizontal: horizontalConnector}}/>}
                                     >
                                             <Step className={MuiStep}>
 
@@ -137,12 +137,6 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
                                                     </Typography>
                                                 </StepLabel>
                                             </Step>
-
-                                            {isMobile && 
-                                                <Grid item container xs={12} justify='center'>
-                                                    <div className={divider}/>
-                                                </Grid>
-                                            }
                                             
                                             <Step active className={(MuiStep)}>
                                                 

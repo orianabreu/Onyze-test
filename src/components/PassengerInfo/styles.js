@@ -48,20 +48,19 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
       backgroundColor: theme.palette.primary.light, 
     },
-    divider: {
-      backgroundColor: '#efefef',
-      width: 2,
-      height: 100,
-    },
     MuiStep: {
       width: `${({isMobile}) => isMobile ? '100%' : '50%'}`,
     },
     MuiStepper: {
       alignItems: 'center',
     },
-    connectorLine: {
-      borderColor: '#fff',
-    },
+    verticalConnector: {
+      borderColor: theme.palette.grey.light,
+      height: 120,
+    },  
+    horizontalConnector: {
+      marginTop: 6
+    }
   }));
 
 export const AccordionSummary = withStyles({
