@@ -4,7 +4,7 @@ module.exports = {
       jest: true,
       browser: true
     },
-    extends: ["airbnb", "prettier", "prettier/react"],
+    extends: ["airbnb", "prettier"],
     globals: {
       Atomics: "readonly",
       SharedArrayBuffer: "readonly",
@@ -24,6 +24,7 @@ module.exports = {
       "react/jsx-one-expression-per-line": "off",
       "react/jsx-props-no-spreading": "off",
       "react/forbid-prop-types": "off",
+      "react/prop-types": "warn",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "error",
       "no-console": ["error", { allow: ["tron"] }],
@@ -39,11 +40,4 @@ module.exports = {
       "jsx-a11y/label-has-associated-control": "off",
       "jsx-a11y/mouse-events-have-key-events": "off"
     },
-    settings: {
-      "import/resolver": {
-        "babel-plugin-root-import": {
-          rootPathSuffix: "src"
-        }
-      }
-    }
   };
