@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    visaButton: {
+    clickedButton: {
       backgroundColor: theme.palette.primary.main,
       borderColor: theme.palette.primary.main,
       color: '#fff',

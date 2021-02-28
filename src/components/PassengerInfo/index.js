@@ -52,7 +52,7 @@ export default function PassengerInfo({imgURL, name, email, phone, location, dep
             <AccordionSummary
                 expandIcon={<SwitchButton />}
                 aria-controls="panel1a-content"
-                id="panel1a-header"
+                id="panel1a-header" 
             >
                 <Typography className={clsx(heading, container)}>
                     PASSENGER INFO
